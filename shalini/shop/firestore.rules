@@ -1,0 +1,172 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function ownsAccount(userId) {
+      return request.auth != null && request.auth.uid == userId;
+    }
+
+    function isAdmin() {
+      return request.auth != null && request.auth.token.admin == true;
+    }
+
+    function validProduct(data) {
+      return data.keys().hasOnly([
+          'name', 'categoryId', 'brand', 'description', 'mrp', 'price', 'discount',
+          'weight', 'stockQuantity', 'status', 'featured', 'imageUrl', 'imagePath',
+          'createdAt', 'updatedAt'
+        ])
+        && data.keys().hasAll([
+          'name', 'categoryId', 'brand', 'description', 'mrp', 'price', 'discount',
+          'weight', 'stockQuantity', 'status', 'featured', 'imageUrl', 'imagePath',
+          'createdAt', 'updatedAt'
+        ])
+        && data.name is string && data.name.size() > 0 && data.name.size() <= 120
+        && data.categoryId is string
+        && exists(/databases/$(database)/documents/categories/$(data.categoryId))
+        && data.brand is string && data.brand.size() <= 80
+        && data.description is string && data.description.size() <= 1000
+        && data.mrp is number && data.mrp > 0
+        && data.price is number && data.price > 0 && data.price <= data.mrp
+        && data.discount is int && data.discount >= 0 && data.discount <= 100
+        && data.weight is string && data.weight.size() > 0 && data.weight.size() <= 40
+        && data.stockQuantity is int && data.stockQuantity >= 0 && data.stockQuantity <= 1000000
+        && data.status in ['active', 'inactive']
+        && data.featured is bool
+        && data.imageUrl is string && data.imageUrl.size() <= 2048
+        && data.imagePath is string && data.imagePath.size() <= 300
+        && data.createdAt is timestamp && data.updatedAt is timestamp;
+    }
+
+    function validCategory(data) {
+      return data.keys().hasOnly([
+          'name', 'slug', 'imageUrl', 'imagePath', 'createdAt', 'updatedAt'
+        ])
+        && data.keys().hasAll([
+          'name', 'slug', 'imageUrl', 'imagePath', 'createdAt', 'updatedAt'
+        ])
+        && data.name is string && data.name.size() > 0 && data.name.size() <= 60
+        && data.slug is string && data.slug.size() > 0 && data.slug.size() <= 100
+        && data.imageUrl is string && data.imageUrl.size() <= 2048
+        && data.imagePath is string && data.imagePath.size() <= 300
+        && data.createdAt is timestamp && data.updatedAt is timestamp;
+    }
+
+    match /products/{productId} {
+      allow read: if true;
+      allow create: if isAdmin()
+        && validProduct(request.resource.data)
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.updatedAt == request.time;
+      allow update: if isAdmin()
+        && validProduct(request.resource.data)
+        && request.resource.data.createdAt == resource.data.createdAt
+        && request.resource.data.updatedAt == request.time;
+      allow delete: if isAdmin();
+    }
+
+    match /categories/{categoryId} {
+      allow read: if true;
+      allow create: if isAdmin()
+        && validCategory(request.resource.data)
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.updatedAt == request.time;
+      allow update: if isAdmin()
+        && validCategory(request.resource.data)
+        && request.resource.data.createdAt == resource.data.createdAt
+        && request.resource.data.updatedAt == request.time;
+      allow delete: if isAdmin();
+    }
+
+    match /storeSettings/{settingId} {
+      function validDeliverySettings(data) {
+        return data.keys().hasOnly(['deliveryAvailable', 'deliveryCharge', 'updatedAt'])
+          && data.keys().hasAll(['deliveryAvailable', 'deliveryCharge', 'updatedAt'])
+          && data.deliveryAvailable is bool
+          && (data.deliveryCharge == null
+            || (data.deliveryCharge is number && data.deliveryCharge >= 0))
+          && data.updatedAt is timestamp;
+      }
+
+      allow get: if settingId == 'delivery';
+      allow list: if false;
+      allow create, update: if isAdmin()
+        && settingId == 'delivery'
+        && validDeliverySettings(request.resource.data)
+        && request.resource.data.updatedAt == request.time;
+      allow delete: if false;
+    }
+
+    match /users/{userId} {
+      function validCustomerProfile(data) {
+        return data.keys().hasOnly(['displayName', 'phoneNumber', 'createdAt', 'updatedAt'])
+          && data.keys().hasAll(['displayName', 'phoneNumber', 'createdAt', 'updatedAt'])
+          && data.displayName is string && data.displayName.size() <= 80
+          && data.phoneNumber is string
+          && request.auth.token.phone_number == data.phoneNumber
+          && data.createdAt is timestamp && data.updatedAt is timestamp;
+      }
+
+      allow get: if ownsAccount(userId) || isAdmin();
+      allow list: if isAdmin();
+      allow create: if ownsAccount(userId)
+        && validCustomerProfile(request.resource.data)
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.updatedAt == request.time;
+      allow update: if ownsAccount(userId)
+        && validCustomerProfile(request.resource.data)
+        && request.resource.data.createdAt == resource.data.createdAt
+        && request.resource.data.updatedAt == request.time
+        && request.resource.data.diff(resource.data).affectedKeys()
+          .hasOnly(['displayName', 'phoneNumber', 'updatedAt']);
+      allow delete: if false;
+
+      match /addresses/{addressId} {
+        function validAddress(data) {
+          return data.keys().hasOnly([
+              'label', 'recipientName', 'phone', 'address', 'city', 'pincode', 'createdAt'
+            ])
+            && data.keys().hasAll([
+              'label', 'recipientName', 'phone', 'address', 'city', 'pincode', 'createdAt'
+            ])
+            && data.label is string && data.label.size() > 0 && data.label.size() <= 30
+            && data.recipientName is string && data.recipientName.size() > 0
+              && data.recipientName.size() <= 80
+            && data.phone is string && data.phone.matches('^\\+[1-9][0-9]{7,14}$')
+            && data.address is string && data.address.size() > 0 && data.address.size() <= 300
+            && data.city is string && data.city.size() > 0 && data.city.size() <= 80
+            && data.pincode is string && data.pincode.matches('^[0-9]{6}$')
+            && data.createdAt is timestamp;
+        }
+
+        allow read, delete: if ownsAccount(userId);
+        allow create: if ownsAccount(userId)
+          && validAddress(request.resource.data)
+          && request.resource.data.createdAt == request.time;
+        allow update: if ownsAccount(userId)
+          && validAddress(request.resource.data)
+          && request.resource.data.createdAt == resource.data.createdAt;
+      }
+
+      match /settings/{settingId} {
+        allow read: if ownsAccount(userId) && settingId == 'preferences';
+        allow create, update: if ownsAccount(userId)
+          && settingId == 'preferences'
+          && request.resource.data.keys().hasOnly(['personalizedRecommendations'])
+          && request.resource.data.keys().hasAll(['personalizedRecommendations'])
+          && request.resource.data.personalizedRecommendations is bool;
+        allow delete: if ownsAccount(userId) && settingId == 'preferences';
+      }
+
+      match /orders/{orderId} {
+        allow read: if ownsAccount(userId) || isAdmin();
+        allow update: if isAdmin()
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status', 'updatedAt'])
+          && request.resource.data.status in [
+            'pending', 'accepted', 'processing', 'out for delivery', 'delivered', 'cancelled'
+          ]
+          && request.resource.data.updatedAt == request.time;
+        allow create, delete: if false;
+      }
+    }
+  }
+}

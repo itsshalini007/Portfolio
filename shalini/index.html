@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Shalini is an aspiring software developer interested in problem solving, coding, and building efficient software solutions."
+    />
+    <meta name="theme-color" content="#f5f8fc" />
+    <title>Shalini | Aspiring Software Developer</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="wordmark" href="#home" aria-label="Shalini, home">
+          shalini<span aria-hidden="true">.</span>
+        </a>
+
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-navigation"
+          aria-label="Open navigation menu"
+          hidden
+        >
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav class="primary-navigation" id="primary-navigation" aria-label="Main navigation">
+          <ul>
+            <li><a class="nav-link" href="#about">About</a></li>
+            <li><a class="nav-link" href="#skills">Skills</a></li>
+            <li><a class="nav-link" href="#learning">Practical learning</a></li>
+            <li><a class="nav-link" href="#repository">GitHub</a></li>
+            <li><a class="nav-link" href="#experience">Work experience</a></li>
+            <li><a class="nav-link" href="#education">Education</a></li>
+            <li><a class="nav-link" href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <button
+          class="theme-toggle"
+          type="button"
+          aria-label="Switch to dark mode"
+          title="Switch to dark mode"
+          hidden
+        >
+          <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path>
+          </svg>
+          <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20.2 15.1A8.5 8.5 0 0 1 8.9 3.8 8.6 8.6 0 1 0 20.2 15.1Z"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="hero section-shell" id="home" aria-labelledby="hero-heading">
+        <div class="hero-glow hero-glow-one" aria-hidden="true"></div>
+        <div class="hero-glow hero-glow-two" aria-hidden="true"></div>
+        <div class="container hero-grid">
+          <div class="hero-copy reveal">
+            <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Open to learning and opportunity</p>
+            <h1 id="hero-heading">Hello, I’m <span>Shalini.</span></h1>
+            <p class="hero-title">Aspiring Software Developer</p>
+            <p class="hero-description">
+              I enjoy solving problems, writing code, and learning how to build
+              efficient software solutions. I’m looking for an opportunity to
+              apply my skills and grow through real-world development.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#skills">
+                Explore my skills
+                <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12m-5-5 5 5-5 5"></path></svg>
+              </a>
+              <a class="button button-secondary" href="#contact">Contact me</a>
+            </div>
+            <div class="hero-note">
+              <span class="note-line" aria-hidden="true"></span>
+              <span>Curious by nature. Building one step at a time.</span>
+            </div>
+          </div>
+
+          <div class="hero-art reveal" aria-hidden="true">
+            <div class="art-orbit orbit-outer"></div>
+            <div class="art-orbit orbit-inner"></div>
+            <div class="art-card">
+              <div class="art-card-top">
+                <span class="art-dots"><i></i><i></i><i></i></span>
+                <span>learning-path</span>
+              </div>
+              <div class="art-code">
+                <span class="code-line"><b>01</b><span><em>const</em> focus = <strong>"problem solving"</strong>;</span></span>
+                <span class="code-line"><b>02</b><span><em>const</em> tools = [<strong>"C++"</strong>, <strong>"web"</strong>];</span></span>
+                <span class="code-line"><b>03</b><span class="code-indent"><em>keepLearning</em>();</span></span>
+                <span class="code-line"><b>04</b><span class="code-cursor" aria-hidden="true"></span></span>
+              </div>
+              <div class="art-card-footer">
+                <span class="footer-mark" aria-hidden="true">&lt;/&gt;</span>
+                <span>practice <b>·</b> learn <b>·</b> grow</span>
+              </div>
+            </div>
+            <span class="orbit-tag tag-code">&lt;/&gt;</span>
+            <span class="orbit-tag tag-braces">{ }</span>
+            <span class="orbit-tag tag-spark" aria-hidden="true">✳</span>
+            <span class="art-caption">A little curiosity goes a long way.</span>
+          </div>
+        </div>
+        <a class="scroll-cue" href="#about">
+          <span>Scroll to explore</span>
+          <span class="scroll-cue-line" aria-hidden="true"></span>
+        </a>
+      </section>
+
+      <section class="section section-about" id="about" aria-labelledby="about-heading">
+        <div class="container about-grid">
+          <div class="section-intro reveal">
+            <p class="section-kicker">A little about me</p>
+            <h2 id="about-heading">Learning today.<br /><span>Building for tomorrow.</span></h2>
+          </div>
+          <div class="about-copy reveal">
+            <p>
+              I’m an aspiring software developer with technical knowledge of
+              programming and web development. I enjoy problem solving, coding,
+              and building efficient software solutions.
+            </p>
+            <p>
+              My experience includes teaching software-related subjects and
+              working in sales, where I communicate with customers and help
+              address their queries. I’m pursuing studies in computer education
+              and political science while continuing to grow my technical skills.
+            </p>
+            <div class="about-values" aria-label="Personal strengths from my resume">
+              <span>Quick learner</span>
+              <span>Teamwork</span>
+              <span>Adaptability</span>
+              <span>Communication</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-skills" id="skills" aria-labelledby="skills-heading">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="section-kicker">What I’m learning</p>
+            <h2 id="skills-heading">Skills &amp; fundamentals</h2>
+            <p class="section-lead">
+              A growing toolkit built through study, practice, and curiosity.
+            </p>
+          </div>
+          <ul class="skills-grid">
+            <li class="skill-card reveal"><span class="skill-mark mark-cpp" aria-hidden="true">C++</span><span class="skill-name">C++</span><span class="skill-type">Programming</span></li>
+            <li class="skill-card reveal"><span class="skill-mark mark-python" aria-hidden="true">Py</span><span class="skill-name">Python</span><span class="skill-type">Programming</span></li>
+            <li class="skill-card reveal"><span class="skill-mark mark-js" aria-hidden="true">JS</span><span class="skill-name">JavaScript</span><span class="skill-type">Programming</span></li>
+            <li class="skill-card reveal"><span class="skill-mark mark-html" aria-hidden="true">&lt;&gt;</span><span class="skill-name">HTML</span><span class="skill-type">Web basics</span></li>
+            <li class="skill-card reveal"><span class="skill-mark mark-css" aria-hidden="true">#</span><span class="skill-name">CSS</span><span class="skill-type">Web basics</span></li>
+            <li class="skill-card reveal"><span class="skill-mark mark-dsa" aria-hidden="true">01</span><span class="skill-name">Data Structures &amp; Algorithms</span><span class="skill-type">Core CS</span></li>
+            <li class="skill-card reveal"><span class="skill-mark mark-problem" aria-hidden="true">?</span><span class="skill-name">Problem Solving</span><span class="skill-type">Core CS</span></li>
+            <li class="skill-card reveal"><span class="skill-mark mark-debug" aria-hidden="true">⌕</span><span class="skill-name">Debugging</span><span class="skill-type">Core CS</span></li>
+            <li class="skill-card reveal"><span class="skill-mark mark-iot" aria-hidden="true">◎</span><span class="skill-name">IoT Fundamentals</span><span class="skill-type">Technology</span></li>
+            <li class="skill-card reveal"><span class="skill-mark mark-php" aria-hidden="true">PHP</span><span class="skill-name">PHP</span><span class="skill-type">Programming</span></li>
+            <li class="skill-card reveal"><span class="skill-mark mark-laravel" aria-hidden="true">Lv</span><span class="skill-name">Laravel</span><span class="skill-type">Web framework</span></li>
+            <li class="skill-card reveal"><span class="skill-mark mark-web" aria-hidden="true">↗</span><span class="skill-name">Web Development</span><span class="skill-type">Development</span></li>
+          </ul>
+          <p class="skills-footnote reveal">
+            Also practicing arrays, strings, recursion, sorting, and searching
+            algorithms using C++.
+          </p>
+        </div>
+      </section>
+
+      <section class="section section-learning" id="learning" aria-labelledby="learning-heading">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="section-kicker">Practice in progress</p>
+            <h2 id="learning-heading">Learning by doing</h2>
+            <p class="section-lead">
+              Hands-on practice that helps me strengthen my fundamentals.
+            </p>
+          </div>
+          <div class="learning-grid">
+            <article class="learning-card reveal">
+              <span class="learning-index">01</span>
+              <span class="learning-icon" aria-hidden="true">&lt;/&gt;</span>
+              <h3>C++ problem practice</h3>
+              <p>Solving programming problems to improve my algorithmic thinking.</p>
+              <span class="learning-label">Programming practice</span>
+            </article>
+            <article class="learning-card reveal">
+              <span class="learning-index">02</span>
+              <span class="learning-icon" aria-hidden="true">▤</span>
+              <h3>Webpage development</h3>
+              <p>Developing basic webpages using HTML, CSS, and JavaScript.</p>
+              <span class="learning-label">Web fundamentals</span>
+            </article>
+            <article class="learning-card reveal">
+              <span class="learning-index">03</span>
+              <span class="learning-icon" aria-hidden="true">↗</span>
+              <h3>Coding exercises</h3>
+              <p>Practicing exercises focused on logic building and debugging.</p>
+              <span class="learning-label">Logic &amp; debugging</span>
+            </article>
+          </div>
+          <p class="learning-note reveal">These are practical learning activities, not professional projects.</p>
+        </div>
+      </section>
+
+      <section class="section section-repository" id="repository" aria-labelledby="repository-heading">
+        <div class="container">
+          <div class="repository-card reveal">
+            <div class="repository-copy">
+              <p class="section-kicker">On GitHub</p>
+              <h2 id="repository-heading">This portfolio, built in the open.</h2>
+              <p>
+                Explore the source code for my personal portfolio website.
+              </p>
+              <ul class="repository-tags" aria-label="Technologies used">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+              </ul>
+              <a
+                class="repository-link"
+                href="https://github.com/itsshalini007/Portfolio"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg class="github-mark" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M8.2 19.2c-4.1 1.2-4.1-2.1-5.8-2.5m11.6 4v-3.2a2.8 2.8 0 0 0-.8-2.2c2.7-.3 5.5-1.3 5.5-6a4.7 4.7 0 0 0-1.3-3.3 4.4 4.4 0 0 0-.1-3.3s-1-.3-3.3 1.3a11.3 11.3 0 0 0-6 0C5.7 2.6 4.7 2.9 4.7 2.9a4.4 4.4 0 0 0-.1 3.3 4.7 4.7 0 0 0-1.3 3.3c0 4.7 2.8 5.7 5.5 6a2.8 2.8 0 0 0-.8 2.2v3.2"></path>
+                </svg>
+                <span>View repository</span>
+                <svg class="repository-arrow" viewBox="0 0 20 20" aria-hidden="true">
+                  <path d="M5 15 15 5M6 5h9v9"></path>
+                </svg>
+              </a>
+            </div>
+            <div class="repository-visual" aria-hidden="true">
+              <span class="repository-orbit repository-orbit-one"></span>
+              <span class="repository-orbit repository-orbit-two"></span>
+              <span class="repository-icon-wrap">
+                <svg class="repository-git-icon" viewBox="0 0 48 48">
+                  <path d="M18 10v17a7 7 0 0 0 7 7h5"></path>
+                  <path d="M18 19a7 7 0 0 0 7-7v-2"></path>
+                  <circle cx="18" cy="8" r="4"></circle>
+                  <circle cx="18" cy="25" r="4"></circle>
+                  <circle cx="33" cy="34" r="4"></circle>
+                </svg>
+              </span>
+              <span class="repository-spark repository-spark-one">+</span>
+              <span class="repository-spark repository-spark-two">·</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-experience" id="experience" aria-labelledby="experience-heading">
+        <div class="container experience-grid">
+          <div class="section-heading experience-heading reveal">
+            <p class="section-kicker">Professional experience</p>
+            <h2 id="experience-heading">Work Experience</h2>
+            <p class="section-lead">
+              Experience in software education and customer-facing sales.
+            </p>
+          </div>
+          <ol class="experience-timeline">
+            <li class="experience-item reveal">
+              <span class="experience-marker" aria-hidden="true"></span>
+              <article class="experience-card">
+                <div class="experience-card-heading">
+                  <div>
+                    <p class="experience-role">Software Faculty</p>
+                    <h3>IICS <span aria-hidden="true">·</span> Daryaganj</h3>
+                  </div>
+                  <span class="experience-duration">Currently working · 3 months</span>
+                </div>
+                <ul class="experience-responsibilities">
+                  <li>Teaching computer and software-related subjects to students.</li>
+                  <li>Explaining programming concepts with practical examples.</li>
+                  <li>Helping students with coding exercises and assignments.</li>
+                  <li>Guiding students in practical projects.</li>
+                </ul>
+              </article>
+            </li>
+            <li class="experience-item reveal">
+              <span class="experience-marker" aria-hidden="true"></span>
+              <article class="experience-card">
+                <div class="experience-card-heading">
+                  <div>
+                    <p class="experience-role">Sales Department</p>
+                    <h3>mPokket <span aria-hidden="true">·</span> Sector 16, Noida</h3>
+                  </div>
+                  <span class="experience-duration">3 months</span>
+                </div>
+                <p class="experience-description">
+                  Worked in sales, communicating with customers and responding
+                  to their queries.
+                </p>
+              </article>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section section-education" id="education" aria-labelledby="education-heading">
+        <div class="container education-grid">
+          <div class="section-heading education-heading reveal">
+            <p class="section-kicker">My studies</p>
+            <h2 id="education-heading">Education</h2>
+            <p class="section-lead">
+              Continuing to learn across technology and the humanities.
+            </p>
+          </div>
+          <ol class="education-timeline">
+            <li class="education-item reveal">
+              <span class="timeline-marker" aria-hidden="true"></span>
+              <div class="education-card">
+                <span class="education-status"><span aria-hidden="true"></span> Currently pursuing</span>
+                <h3>Advanced Diploma in Computer Education</h3>
+                <p>Indian Institute of Computer Science (IICS)</p>
+              </div>
+            </li>
+            <li class="education-item reveal">
+              <span class="timeline-marker" aria-hidden="true"></span>
+              <div class="education-card">
+                <span class="education-status"><span aria-hidden="true"></span> Currently pursuing</span>
+                <h3>B.A. (Hons.) Political Science</h3>
+                <p>University of Delhi</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section section-contact" id="contact" aria-labelledby="contact-heading">
+        <div class="container">
+          <div class="contact-panel reveal">
+            <div class="contact-decoration" aria-hidden="true"></div>
+            <div class="contact-content">
+              <p class="section-kicker">The next chapter</p>
+              <h2 id="contact-heading">Let’s make room<br />for what’s next.</h2>
+              <p>
+                I’m seeking an opportunity in the IT industry to apply my
+                technical skills and gain real-world development experience.
+              </p>
+              <span class="contact-note">Contact details are not displayed on this page.</span>
+            </div>
+            <div class="contact-symbol" aria-hidden="true">
+              <span>&lt;</span><span>/</span><span>&gt;</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <a class="wordmark footer-wordmark" href="#home" aria-label="Shalini, back to top">
+          shalini<span aria-hidden="true">.</span>
+        </a>
+        <p>Learning, practicing, and growing.</p>
+        <p class="copyright">&copy; <span id="copyright-year">2026</span> Shalini</p>
+      </div>
+    </footer>
+
+    <button class="back-to-top" type="button" aria-label="Back to top" title="Back to top" hidden>
+      <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 12 5-5 5 5"></path></svg>
+    </button>
+  </body>
+</html>

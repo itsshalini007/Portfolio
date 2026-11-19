@@ -1,0 +1,687 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#713b45">
+    <meta
+      name="description"
+      content="Shop everyday grocery categories from Inder General Store in Kadipur, New Delhi."
+    >
+    <title>Inder General Store | Everyday essentials, close to home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="styles.css">
+    <script src="products.js" defer></script>
+    <script src="homepage-data.js" defer></script>
+    <script src="script.js" defer></script>
+    <script type="module" src="contact-settings.js"></script>
+    <script type="module" src="account.js"></script>
+    <script type="module" src="catalog.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#home" aria-label="Inder General Store home">
+          <span class="brand__mark" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="none">
+              <path d="M8 17.5h24l-2 17H10l-2-17Z" fill="currentColor" opacity=".16"/>
+              <path d="M8 17.5h24l-2 17H10l-2-17Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+              <path d="M14.5 17.5v-4a5.5 5.5 0 0 1 11 0v4M15 24c1.7 2.2 3.4 3.3 5 3.3s3.3-1.1 5-3.3" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <span class="brand__text">
+            <strong>Inder</strong>
+            <span>GENERAL STORE</span>
+            <span class="brand__location" data-store-field="address">KH-1047, Kadipur, New Delhi, Delhi, 110036, India</span>
+          </span>
+        </a>
+
+        <label class="search-box">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5"/></svg>
+          <span class="sr-only">Search grocery products</span>
+          <input id="product-search" type="search" placeholder="Search products or brands..." autocomplete="off">
+          <kbd>/</kbd>
+        </label>
+        <div class="utility-actions" aria-label="Your account and cart">
+          <button class="cart-button" id="open-cart" type="button" aria-label="Open cart, 0 items">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.2 11.1a2 2 0 0 0 2 1.6h8.7a2 2 0 0 0 1.9-1.4L22 9H6"/><circle cx="10" cy="20" r="1.2"/><circle cx="18" cy="20" r="1.2"/></svg>
+            <span class="cart-button__label">Cart</span>
+            <span class="cart-count" id="cart-count" aria-live="polite">0</span>
+          </button>
+          <button class="account-button" id="account-button" type="button" aria-label="Login or sign up" aria-haspopup="dialog" aria-controls="account-dialog">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0"/></svg>
+            <span id="account-button-label">Login</span>
+          </button>
+        </div>
+        <nav class="text-navigation" aria-label="Main navigation">
+          <a href="#home">Home</a>
+          <a href="#categories">Categories</a>
+          <a href="#shop">Shop</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="container hero__inner">
+          <div class="hero__copy">
+            <p class="eyebrow"><span class="eyebrow__line"></span> Your local everyday store</p>
+            <h1>Your daily grocery needs,<br><span>just a click away.</span></h1>
+            <p class="hero__description">
+              Your neighborhood stop for the little things that make every day easier.
+              Find your everyday favorites, all in one place.
+            </p>
+            <div class="hero__actions">
+              <a class="button button--primary" href="#shop">
+                Explore the shop
+                <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12m-5-5 5 5-5 5"/></svg>
+              </a>
+              <a class="text-link" href="#contact">Find our store <span aria-hidden="true">↗</span></a>
+            </div>
+            <div class="hero__trust">
+              <span class="trust-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 3 4.5 6v5.5c0 4.5 3.1 7.8 7.5 9.5 4.4-1.7 7.5-5 7.5-9.5V6L12 3Z"/><path d="m8.8 12 2.1 2.1 4.5-4.5"/></svg>
+              </span>
+              <span><strong>Right around the corner</strong><small>Serving our local community</small></span>
+            </div>
+          </div>
+          <div class="hero__visual">
+            <div class="hero__image-wrap">
+              <img
+                src="assets/site/grocery-aisle-hero.jpg"
+                alt="A warmly lit grocery aisle with shelves of pantry staples and chilled dairy"
+                fetchpriority="high"
+              >
+            </div>
+            <div class="hero-note">
+              <span class="hero-note__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3.5v17M3.5 12h17M6 6l12 12M18 6 6 18"/></svg></span>
+              <span><strong>Good things,</strong><br>close to home.</span>
+            </div>
+            <span class="hero-spark hero-spark--one" aria-hidden="true">✳</span>
+            <span class="hero-spark hero-spark--two" aria-hidden="true">✦</span>
+          </div>
+        </div>
+        <div class="hero__bottom container" aria-label="Store categories">
+          <span>GOOD FOOD</span><i></i><span>DAILY ESSENTIALS</span><i></i><span>LOCAL CONVENIENCE</span>
+        </div>
+      </section>
+
+      <section class="categories section-pad" id="categories">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">A little bit of everything</p>
+              <h2>Shop by <span>category</span></h2>
+            </div>
+            <p class="section-heading__note">Choose a category to browse its listed products. Categories with no listed products are ready for catalog updates.</p>
+          </div>
+          <div class="category-grid category-grid--browse" id="category-grid"></div>
+          <section class="search-discovery" aria-label="Search suggestions">
+            <div class="search-discovery__section">
+              <div class="section-heading search-discovery__heading">
+                <div>
+                  <p class="eyebrow">A little inspiration</p>
+                  <h2>Trending <span>searches</span></h2>
+                </div>
+                <p class="section-heading__note">Tap a suggestion to search the current catalog.</p>
+              </div>
+              <div class="discovery-tabs" id="trending-search-tabs" role="tablist" aria-label="Trending search types"></div>
+              <div class="search-chip-list" id="trending-search-list" role="tabpanel"></div>
+            </div>
+            <div class="search-discovery__section search-discovery__section--popular">
+              <div class="section-heading search-discovery__heading">
+                <div>
+                  <p class="eyebrow">Find something familiar</p>
+                  <h2>Popular <span>searches</span></h2>
+                </div>
+                <p class="section-heading__note">Search suggestions are not stock or availability claims.</p>
+              </div>
+              <div class="discovery-tabs discovery-tabs--popular" id="popular-search-tabs" role="tablist" aria-label="Popular search types"></div>
+              <div class="search-chip-list" id="popular-search-list" role="tabpanel"></div>
+            </div>
+          </section>
+          <aside class="local-shop-banner">
+            <div><p class="eyebrow">Good things for every day</p><h3>Your neighborhood shop, a little closer.</h3><p>Browse our current catalog, then contact the store to confirm details and availability.</p></div>
+            <a class="button button--primary" href="#shop">Browse the catalog <span aria-hidden="true">↗</span></a>
+          </aside>
+        </div>
+      </section>
+
+      <section class="shop section-pad" id="shop">
+        <div class="container">
+          <div class="shop__top">
+            <div class="section-heading section-heading--shop">
+              <div>
+                <p class="eyebrow">The neighborhood favorites</p>
+                <h2 id="product-heading">All Products</h2>
+              </div>
+              <p class="section-heading__note" id="catalog-heading-note">Browse the sample catalog. Check with the store for actual stock and prices.</p>
+            </div>
+          </div>
+          <p class="catalog-notice">
+            <span aria-hidden="true">ⓘ</span>
+            <span id="catalog-notice-copy">DEMO CATALOG: Sample products, brands, pack sizes, prices, and category photos are for demonstration only. They are not confirmed shop inventory or prices; photo packaging may differ.</span>
+          </p>
+          <div class="catalog-showcase">
+            <div class="catalog-showcase__heading">
+              <p class="eyebrow">A little inspiration</p>
+              <h3>Everyday picks, on the move</h3>
+            </div>
+            <div class="product-marquee" id="product-marquee" aria-label="Featured products"></div>
+          </div>
+          <div class="shop-toolbar">
+            <button class="filter-open-button" id="open-filters" type="button" aria-controls="product-filters" aria-expanded="false">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M7 12h10m-7 6h4"/></svg>
+              Filters <span class="filter-count" id="filter-count" hidden>0</span>
+            </button>
+            <button class="wishlist-view-button" id="show-wishlist" type="button" aria-pressed="false">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.6c0 5.2-8.8 10-8.8 10s-8.8-4.8-8.8-10A4.6 4.6 0 0 1 12 6.4a4.6 4.6 0 0 1 8.8 2.2Z"/></svg>
+              Wishlist <span id="wishlist-count">0</span>
+            </button>
+            <label class="sort-control">Sort by
+              <select id="sort-products" aria-label="Sort products">
+                <option value="popular">Popularity</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="rating">Customer Rating</option>
+                <option value="newest">Newest First</option>
+              </select>
+            </label>
+          </div>
+          <div class="shop-layout">
+            <button class="filter-backdrop" id="filter-backdrop" type="button" aria-label="Close filters" tabindex="-1" hidden></button>
+            <aside class="filter-panel" id="product-filters" role="dialog" aria-modal="true" aria-labelledby="filter-panel-title" tabindex="-1" inert>
+              <div class="filter-panel__heading">
+                <div><p class="eyebrow">Refine your shop</p><h3 id="filter-panel-title">Filter Products</h3></div>
+                <button class="filter-close-button" id="close-filters" type="button" aria-label="Close filters">×</button>
+              </div>
+              <div class="filter-panel__content">
+                <details class="filter-section" open>
+                  <summary>Price Range</summary>
+                  <fieldset class="filter-group">
+                    <legend class="sr-only">Price Range</legend>
+                    <label><input type="radio" name="price-filter" value="under-50"> Under ₹50</label>
+                    <label><input type="radio" name="price-filter" value="50-100"> ₹50–₹100</label>
+                    <label><input type="radio" name="price-filter" value="100-200"> ₹100–₹200</label>
+                    <label><input type="radio" name="price-filter" value="200-500"> ₹200–₹500</label>
+                    <div class="range-inputs">
+                      <label><span class="sr-only">Minimum price in rupees</span><input id="price-min" type="number" min="0" placeholder="Min ₹" inputmode="numeric"></label>
+                      <span aria-hidden="true">–</span>
+                      <label><span class="sr-only">Maximum price in rupees</span><input id="price-max" type="number" min="0" placeholder="Max ₹" inputmode="numeric"></label>
+                    </div>
+                  </fieldset>
+                </details>
+                <details class="filter-section">
+                  <summary>Weight / Quantity</summary>
+                  <fieldset class="filter-group">
+                    <legend class="sr-only">Weight / Quantity</legend>
+                    <label><input type="checkbox" name="weight-filter" value="50g"> 50g</label>
+                    <label><input type="checkbox" name="weight-filter" value="100g"> 100g</label>
+                    <label><input type="checkbox" name="weight-filter" value="200g"> 200g</label>
+                    <label><input type="checkbox" name="weight-filter" value="500g"> 500g</label>
+                    <label><input type="checkbox" name="weight-filter" value="1kg"> 1kg</label>
+                    <label><input type="checkbox" name="weight-filter" value="2kg"> 2kg</label>
+                    <label><input type="checkbox" name="weight-filter" value="5kg"> 5kg</label>
+                  </fieldset>
+                </details>
+                <details class="filter-section">
+                  <summary>Customer Rating</summary>
+                  <fieldset class="filter-group">
+                    <legend class="sr-only">Customer Rating</legend>
+                    <label><input type="radio" name="rating-filter" value="4"> 4 stars &amp; above</label>
+                    <label><input type="radio" name="rating-filter" value="3"> 3 stars &amp; above</label>
+                    <label><input type="radio" name="rating-filter" value="2"> 2 stars &amp; above</label>
+                  </fieldset>
+                </details>
+                <details class="filter-section">
+                  <summary>Category</summary>
+                  <fieldset class="filter-group">
+                    <legend class="sr-only">Category</legend>
+                    <div id="category-filter-options"></div>
+                  </fieldset>
+                </details>
+                <details class="filter-section">
+                  <summary>Brand</summary>
+                  <fieldset class="filter-group">
+                    <legend class="sr-only">Brand</legend>
+                    <div id="brand-filter-options"><span class="filter-unavailable">No confirmed brands yet</span></div>
+                  </fieldset>
+                </details>
+                <p class="filter-data-note">Catalog prices and details are demo examples, not confirmed store data. Genuine customer ratings were not supplied, so rating filters currently have no matching products.</p>
+              </div>
+              <div class="filter-panel__footer">
+                <button class="clear-filters-button" id="clear-filters" type="button">Clear All</button>
+                <button class="filter-results-button" id="show-filter-results" type="button">Apply Filters</button>
+              </div>
+            </aside>
+            <div class="shop-results">
+              <p class="result-summary" id="result-summary" aria-live="polite"></p>
+              <div class="selected-filter-chips" id="selected-filter-chips" aria-label="Selected filters" hidden></div>
+              <div class="product-grid" id="product-grid" hidden>
+            <article class="product-card" data-product="biscuits" data-name="biscuits">
+              <div class="product-card__image product-card__image--biscuits">
+                <span class="product-card__tag">EVERYDAY FAVORITE</span>
+                <img src="assets/categories/biscuits-cookies.jpg" alt="Golden chocolate chip cookies arranged in a bowl" loading="lazy">
+              </div>
+              <div class="product-card__body">
+                <p class="product-card__category">SNACKS &amp; TREATS</p>
+                <h3>Biscuits</h3>
+                <div class="product-card__price">Price to be confirmed</div>
+                <div class="product-card__controls">
+                  <label class="quantity-control"><span class="sr-only">Quantity of biscuits</span><button type="button" data-quantity="-1" aria-label="Decrease biscuits quantity">−</button><input type="number" min="1" max="99" value="1" inputmode="numeric" aria-label="Biscuits quantity"><button type="button" data-quantity="1" aria-label="Increase biscuits quantity">+</button></label>
+                  <button class="add-button" type="button" data-add="biscuits" aria-label="Add biscuits category to preview cart"><span>Add to cart</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.2 11.1a2 2 0 0 0 2 1.6h8.7a2 2 0 0 0 1.9-1.4L22 9H6"/><circle cx="10" cy="20" r="1.2"/><circle cx="18" cy="20" r="1.2"/></svg></button>
+                </div>
+              </div>
+            </article>
+            <article class="product-card" data-product="chips" data-name="chips">
+              <div class="product-card__image product-card__image--chips">
+                <span class="product-card__tag">A LITTLE CRUNCH</span>
+                <img src="assets/categories/chips-namkeen.jpg" alt="A colorful assortment of packaged savory snacks" loading="lazy">
+              </div>
+              <div class="product-card__body">
+                <p class="product-card__category">SNACKS &amp; TREATS</p>
+                <h3>Chips</h3>
+                <div class="product-card__price">Price to be confirmed</div>
+                <div class="product-card__controls">
+                  <label class="quantity-control"><span class="sr-only">Quantity of chips</span><button type="button" data-quantity="-1" aria-label="Decrease chips quantity">−</button><input type="number" min="1" max="99" value="1" inputmode="numeric" aria-label="Chips quantity"><button type="button" data-quantity="1" aria-label="Increase chips quantity">+</button></label>
+                  <button class="add-button" type="button" data-add="chips" aria-label="Add chips category to preview cart"><span>Add to cart</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.2 11.1a2 2 0 0 0 2 1.6h8.7a2 2 0 0 0 1.9-1.4L22 9H6"/><circle cx="10" cy="20" r="1.2"/><circle cx="18" cy="20" r="1.2"/></svg></button>
+                </div>
+              </div>
+            </article>
+            <article class="product-card" data-product="chocolates" data-name="chocolate chocolates">
+              <div class="product-card__image product-card__image--chocolates">
+                <span class="product-card__tag">SOMETHING SWEET</span>
+                <img src="assets/categories/chocolates-candies.jpg" alt="Rich chocolate dessert with cocoa and chocolate pieces" loading="lazy">
+              </div>
+              <div class="product-card__body">
+                <p class="product-card__category">SNACKS &amp; TREATS</p>
+                <h3>Chocolates</h3>
+                <div class="product-card__price">Price to be confirmed</div>
+                <div class="product-card__controls">
+                  <label class="quantity-control"><span class="sr-only">Quantity of chocolates</span><button type="button" data-quantity="-1" aria-label="Decrease chocolates quantity">−</button><input type="number" min="1" max="99" value="1" inputmode="numeric" aria-label="Chocolates quantity"><button type="button" data-quantity="1" aria-label="Increase chocolates quantity">+</button></label>
+                  <button class="add-button" type="button" data-add="chocolates" aria-label="Add chocolates category to preview cart"><span>Add to cart</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.2 11.1a2 2 0 0 0 2 1.6h8.7a2 2 0 0 0 1.9-1.4L22 9H6"/><circle cx="10" cy="20" r="1.2"/><circle cx="18" cy="20" r="1.2"/></svg></button>
+                </div>
+              </div>
+            </article>
+            <article class="product-card" data-product="milk" data-name="milk">
+              <div class="product-card__image product-card__image--milk">
+                <span class="product-card__tag">A DAILY ESSENTIAL</span>
+                <img src="assets/categories/milk-dairy.jpg" alt="A chilled carton of milk beside a glass" loading="lazy">
+              </div>
+              <div class="product-card__body">
+                <p class="product-card__category">DAILY ESSENTIALS</p>
+                <h3>Milk</h3>
+                <div class="product-card__price">Price to be confirmed</div>
+                <div class="product-card__controls">
+                  <label class="quantity-control"><span class="sr-only">Quantity of milk</span><button type="button" data-quantity="-1" aria-label="Decrease milk quantity">−</button><input type="number" min="1" max="99" value="1" inputmode="numeric" aria-label="Milk quantity"><button type="button" data-quantity="1" aria-label="Increase milk quantity">+</button></label>
+                  <button class="add-button" type="button" data-add="milk" aria-label="Add milk category to preview cart"><span>Add to cart</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.2 11.1a2 2 0 0 0 2 1.6h8.7a2 2 0 0 0 1.9-1.4L22 9H6"/><circle cx="10" cy="20" r="1.2"/><circle cx="18" cy="20" r="1.2"/></svg></button>
+                </div>
+              </div>
+            </article>
+            <article class="product-card" data-product="essentials" data-name="daily essentials groceries">
+              <div class="product-card__image product-card__image--essentials">
+                <span class="product-card__tag">FOR EVERYDAY</span>
+                <img src="assets/categories/other-daily-essentials.jpg" alt="A neighborhood shopper browsing everyday store essentials" loading="lazy">
+              </div>
+              <div class="product-card__body">
+                <p class="product-card__category">PANTRY &amp; HOME</p>
+                <h3>Daily essentials</h3>
+                <div class="product-card__price">Price to be confirmed</div>
+                <div class="product-card__controls">
+                  <label class="quantity-control"><span class="sr-only">Quantity of daily essentials</span><button type="button" data-quantity="-1" aria-label="Decrease daily essentials quantity">−</button><input type="number" min="1" max="99" value="1" inputmode="numeric" aria-label="Daily essentials quantity"><button type="button" data-quantity="1" aria-label="Increase daily essentials quantity">+</button></label>
+                  <button class="add-button" type="button" data-add="essentials" aria-label="Add daily essentials category to preview cart"><span>Add to cart</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.2 11.1a2 2 0 0 0 2 1.6h8.7a2 2 0 0 0 1.9-1.4L22 9H6"/><circle cx="10" cy="20" r="1.2"/><circle cx="18" cy="20" r="1.2"/></svg></button>
+                </div>
+              </div>
+            </article>
+            <p class="empty-state" id="empty-state" hidden>No demo products match that search. Try another word.</p>
+          </div>
+          <section class="recently-viewed" id="recently-viewed-section" hidden>
+            <h3>Recently viewed</h3>
+            <div class="recently-viewed__list" id="recently-viewed-list"></div>
+          </section>
+          </div>
+        </div>
+        </div>
+      </section>
+
+      <section class="about section-pad" id="about">
+        <div class="container about__inner">
+          <div class="about__art" aria-hidden="true">
+            <div class="about__circle about__circle--outer"></div>
+            <div class="about__circle about__circle--inner"></div>
+            <img class="about__produce-image" src="assets/categories/fruits.jpg" alt="A colorful assortment of fresh fruit">
+            <span class="about__leaf about__leaf--one">✳</span>
+            <span class="about__leaf about__leaf--two">✦</span>
+            <div class="about__label"><span>LOCAL</span><span>BY HEART</span></div>
+          </div>
+          <div class="about__copy">
+            <p class="eyebrow">A familiar name in your neighborhood</p>
+            <h2>Small shop.<br><span>Big on everyday.</span></h2>
+            <p>
+              Inder General Store is your local grocery store in Kadipur. From a quick
+              snack to daily essentials, we're here to make the everyday shop feel easy.
+            </p>
+            <div class="about__values">
+              <div><span class="value-icon">✳</span><span><strong>Quality products</strong><small>Everyday picks for your home</small></span></div>
+              <div><span class="value-icon">↗</span><span><strong>Local convenience</strong><small>Your neighborhood, close by</small></span></div>
+              <div><span class="value-icon">♡</span><span><strong>Easy ordering</strong><small>A simple way to browse our shop</small></span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact section-pad" id="contact">
+        <div class="container contact__inner">
+          <div class="contact__copy">
+            <p class="eyebrow eyebrow--light">INDER GENERAL STORE</p>
+            <h2>We’re here to <span>help.</span></h2>
+            <p>Call, email, or message the store. Visit us at <span data-store-field="address">KH-1047, Kadipur, New Delhi, Delhi, 110036, India</span>.</p>
+            <div class="contact__phones">
+              <a data-store-link="phone" href="tel:9289648518"><span class="contact__phone-icon" aria-hidden="true">☎</span>Call <span data-store-field="phone">9289648518</span></a>
+              <a data-store-link="alternate_phone" href="tel:8882494580"><span class="contact__phone-icon" aria-hidden="true">☎</span>Call <span data-store-field="alternate_phone">8882494580</span></a>
+              <a data-store-link="email" href="mailto:itsshalini007@gmail.com"><span data-store-field="email">itsshalini007@gmail.com</span></a>
+            </div>
+            <div class="social-links" aria-label="Social media">
+              <a class="social-link social-link--whatsapp" data-store-whatsapp href="https://wa.me/919289648518?text=Hello%20Inder%20General%20Store%2C%20I%20have%20a%20question." target="_blank" rel="noopener noreferrer" aria-label="Chat with Inder General Store on WhatsApp">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.7a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.5-4.9a8.4 8.4 0 1 1 16-3.9Z"/><path d="M8.2 8.1c.2-.5.4-.5.7-.5h.5c.2 0 .4.1.5.4l.7 1.6c.1.2.1.4-.1.6l-.5.6c-.2.2-.2.4 0 .6.4.7 1 1.3 1.7 1.7.2.1.4.1.6-.1l.6-.7c.2-.2.4-.2.6-.1l1.5.7c.3.1.4.3.4.5 0 .3-.2 1.1-.7 1.5-.5.5-1.2.7-1.8.6-.7-.1-1.6-.4-2.7-1.1-1.3-.8-2.2-1.8-2.8-2.8-.6-1-.8-1.8-.7-2.4.1-.5.4-.9.7-1.1Z"/></svg>
+                WhatsApp Support
+              </a>
+              <a class="social-link social-link--instagram" data-instagram-link href="#" target="_blank" rel="noopener noreferrer" aria-label="Open our Instagram profile" hidden>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.8" r=".7" fill="currentColor" stroke="none"/></svg>
+                Instagram
+              </a>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-card__top"><span class="contact-card__pin" aria-hidden="true">⌖</span><span>VISIT OUR STORE</span></div>
+            <h3 data-store-field="store_name">Inder General Store</h3>
+            <address data-store-field="address">KH-1047, Kadipur, New Delhi, Delhi, 110036, India</address>
+            <a class="contact-card__link" data-store-directions href="https://www.google.com/maps/dir/?api=1&amp;destination=KH-1047%2C%20Kadipur%2C%20New%20Delhi%2C%20Delhi%2C%20110036%2C%20India" target="_blank" rel="noopener noreferrer">
+              Get Directions <span aria-hidden="true">↗</span>
+            </a>
+            <div class="store-detail-cards">
+              <article class="store-detail-card">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+                <div><strong>Open Daily</strong><span data-store-field="opening_days">Monday to Sunday</span><b data-store-hours>6:00 AM – 10:00 PM</b></div>
+              </article>
+              <article class="store-detail-card">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h11v10H3zM14 10h4l3 3v4h-7z"/><circle cx="7" cy="19" r="1.5"/><circle cx="18" cy="19" r="1.5"/></svg>
+                <div><strong data-delivery-availability>Home Delivery Available</strong><span data-store-field="delivery_area">Kadipur and nearby areas</span><b data-delivery-charge>Fixed delivery charge applies</b><span data-store-minimum-order>No minimum order</span><span data-store-field="delivery_schedule">Same-day delivery</span><span data-delivery-note>Contact the store to confirm delivery details for your order.</span></div>
+              </article>
+            </div>
+            <a class="contact-card__link contact-card__link--page" href="contact.html">Contact Us and delivery information <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-main">
+        <div class="footer-brand">
+          <a class="brand brand--footer" href="#home">
+            <span class="brand__mark" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none"><path d="M8 17.5h24l-2 17H10l-2-17Z" fill="currentColor" opacity=".16"/><path d="M8 17.5h24l-2 17H10l-2-17Z" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M14.5 17.5v-4a5.5 5.5 0 0 1 11 0v4M15 24c1.7 2.2 3.4 3.3 5 3.3s3.3-1.1 5-3.3" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+            </span>
+            <span class="brand__text"><strong>Inder</strong><span>GENERAL STORE</span></span>
+          </a>
+          <p>Good things for every day,<br>right here in your neighborhood.</p>
+        </div>
+        <div class="footer-column">
+          <h2>Explore</h2>
+          <a href="#home">Home</a><a href="#shop">Shop</a><a href="#categories">Categories</a><a href="#about">About us</a><a href="contact.html">Contact Us</a>
+        </div>
+        <div class="footer-column footer-column--contact">
+          <h2>Get in touch</h2>
+          <a data-store-link="phone" href="tel:9289648518"><span data-store-field="phone">92896 48518</span></a>
+          <a data-store-link="alternate_phone" href="tel:8882494580"><span data-store-field="alternate_phone">88824 94580</span></a>
+          <a data-store-link="email" href="mailto:itsshalini007@gmail.com"><span data-store-field="email">itsshalini007@gmail.com</span></a>
+          <span data-store-field="address">KH-1047, Kadipur, New Delhi, Delhi, 110036, India</span>
+          <div class="footer-socials" aria-label="Social media">
+            <a class="footer-social-link" data-store-whatsapp href="https://wa.me/919289648518?text=Hi%20Inder%20General%20Store" target="_blank" rel="noopener noreferrer" aria-label="Chat with Inder General Store on WhatsApp">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.7a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.5-4.9a8.4 8.4 0 1 1 16-3.9Z"/><path d="M8.2 8.1c.2-.5.4-.5.7-.5h.5c.2 0 .4.1.5.4l.7 1.6c.1.2.1.4-.1.6l-.5.6c-.2.2-.2.4 0 .6.4.7 1 1.3 1.7 1.7.2.1.4.1.6-.1l.6-.7c.2-.2.4-.2.6-.1l1.5.7c.3.1.4.3.4.5 0 .3-.2 1.1-.7 1.5-.5.5-1.2.7-1.8.6-.7-.1-1.6-.4-2.7-1.1-1.3-.8-2.2-1.8-2.8-2.8-.6-1-.8-1.8-.7-2.4.1-.5.4-.9.7-1.1Z"/></svg>
+            </a>
+            <a class="footer-social-link" data-instagram-link href="#" target="_blank" rel="noopener noreferrer" aria-label="Open our Instagram profile" hidden>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.8" r=".7" fill="currentColor" stroke="none"/></svg>
+            </a>
+          </div>
+        </div>
+        <a class="back-top" href="#home" aria-label="Back to top">↑</a>
+      </div>
+      <div class="container footer-bottom">
+        <span>© <span id="current-year"></span> Inder General Store. All rights reserved.</span>
+        <span>Made for the neighborhood <b aria-hidden="true">♥</b> <a class="admin-footer-link" href="admin.html">Admin Login</a></span>
+      </div>
+    </footer>
+
+    <div class="cart-overlay" id="cart-overlay" hidden>
+      <button class="cart-overlay__backdrop" type="button" aria-label="Close cart" tabindex="-1"></button>
+      <aside class="cart-drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-title" tabindex="-1">
+        <div class="cart-drawer__header">
+          <div><p class="eyebrow">Your selection</p><h2 id="cart-title">Shopping cart <span id="drawer-count">(0)</span></h2></div>
+          <button class="icon-button cart-close" id="close-cart" type="button" aria-label="Close cart"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
+        </div>
+        <p class="cart-preview-note" id="cart-preview-note">DEMO CART — sample catalog items and prices are not confirmed shop inventory or prices. Confirm actual stock and prices with the store.</p>
+        <div class="cart-items" id="cart-items"></div>
+        <div class="cart-empty" id="cart-empty">
+          <span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h2l2.2 11.1a2 2 0 0 0 2 1.6h8.7a2 2 0 0 0 1.9-1.4L22 9H6"/><circle cx="10" cy="20" r="1.2"/><circle cx="18" cy="20" r="1.2"/></svg></span>
+          <strong>Your cart is waiting</strong>
+          <p>Browse the demo catalog and add a product to get started.</p>
+          <button class="button button--primary" id="continue-shopping" type="button">Continue shopping</button>
+        </div>
+        <div class="cart-drawer__footer" id="cart-footer" hidden>
+          <div class="cart-total"><span>Subtotal</span><strong>To be confirmed</strong></div>
+          <p>Prices, product details, and delivery availability must be confirmed with the store.</p>
+          <form class="checkout-form" id="checkout-form">
+            <label>Your name<input name="customerName" type="text" autocomplete="name" maxlength="80" required></label>
+            <label>Mobile number<input name="mobile" type="tel" inputmode="tel" autocomplete="tel" pattern="[6-9][0-9]{9}" maxlength="10" placeholder="10-digit Indian mobile number" required></label>
+            <label>Delivery address<textarea name="address" autocomplete="street-address" rows="2" maxlength="300" required></textarea></label>
+            <button class="button button--primary checkout-submit" type="submit">Place Order</button>
+          </form>
+          <div class="order-preview" id="order-preview" hidden>
+            <p class="order-preview__message" id="order-message-preview"></p>
+            <button class="order-edit" id="edit-order" type="button">Edit order details</button>
+            <a class="button button--whatsapp" id="whatsapp-confirm-link" href="#" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.7a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.5-4.9a8.4 8.4 0 1 1 16-3.9Z"/><path d="M8.2 8.1c.2-.5.4-.5.7-.5h.5c.2 0 .4.1.5.4l.7 1.6c.1.2.1.4-.1.6l-.5.6c-.2.2-.2.4 0 .6.4.7 1 1.3 1.7 1.7.2.1.4.1.6-.1l.6-.7c.2-.2.4-.2.6-.1l1.5.7c.3.1.4.3.4.5 0 .3-.2 1.1-.7 1.5-.5.5-1.2.7-1.8.6-.7-.1-1.6-.4-2.7-1.1-1.3-.8-2.2-1.8-2.8-2.8-.6-1-.8-1.8-.7-2.4.1-.5.4-.9.7-1.1Z"/></svg>
+              Confirm Order on WhatsApp
+            </a>
+            <p class="order-preview__notice">Your order is not confirmed until you send the message in WhatsApp.</p>
+          </div>
+          <a class="cart-call" href="tel:9289648518">Call the store to confirm your order <span aria-hidden="true">↗</span></a>
+        </div>
+      </aside>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <dialog class="quick-view-dialog" id="quick-view-dialog" aria-labelledby="quick-view-title">
+      <button class="quick-view-close" id="close-quick-view" type="button" aria-label="Close product details">×</button>
+      <div id="quick-view-content"></div>
+    </dialog>
+    <dialog class="account-dialog" id="account-dialog" aria-labelledby="account-title">
+      <div class="account-panel">
+        <header class="account-panel__header">
+          <div>
+            <p class="eyebrow">Inder General Store</p>
+            <h2 id="account-title">My Account</h2>
+          </div>
+          <button class="icon-button" id="close-account" type="button" aria-label="Close account">×</button>
+        </header>
+        <p class="account-message" id="account-message" role="status" aria-live="polite" hidden></p>
+
+        <section class="account-login" id="account-login" hidden>
+          <div class="account-login-layout">
+            <aside class="account-visual">
+              <img src="assets/categories/vegetables.jpg" alt="" aria-hidden="true">
+              <div class="account-visual__shade"></div>
+              <div class="account-visual__content">
+                <span class="account-visual__mark" aria-hidden="true">✳</span>
+                <p class="account-visual__eyebrow">Good things, close to home</p>
+                <h3>A little easier,<br>every day.</h3>
+                <p class="account-visual__copy">Your neighborhood favorites, all in one place.</p>
+                <ul>
+                  <li><span>✓</span> Keep your saved favorites close</li>
+                  <li><span>✓</span> Check in on your store orders</li>
+                  <li><span>✓</span> Save your delivery addresses</li>
+                </ul>
+                <span class="account-visual__local">INDer GENERAL STORE <i>·</i> KADI VIHAR</span>
+              </div>
+            </aside>
+            <div class="account-login-card">
+              <div class="account-login-card__heading">
+                <p class="eyebrow">WELCOME TO INDER</p>
+                <h3 id="login-panel-title">Welcome back</h3>
+                <p id="login-panel-description">Sign in to pick up where you left off.</p>
+              </div>
+              <div class="account-tabs" role="tablist" aria-label="Sign in options">
+                <button class="account-tab is-active" id="phone-tab" type="button" role="tab" aria-selected="true" aria-controls="phone-login-panel" data-login-tab="phone">Mobile OTP</button>
+                <button class="account-tab" id="password-tab" type="button" role="tab" aria-selected="false" aria-controls="password-login-panel" data-login-tab="password">Email &amp; password</button>
+              </div>
+              <label class="remember-option account-login-remember"><input id="remember-account" type="checkbox" checked> <span>Remember me</span></label>
+              <div class="account-login-panel" id="phone-login-panel" role="tabpanel" aria-labelledby="phone-tab">
+                <form id="phone-login-form" class="account-form">
+                  <label for="login-phone">Your mobile number</label>
+                  <div class="phone-input">
+                    <span class="phone-input__code" aria-label="India country code">🇮🇳 <b>+91</b></span>
+                    <input id="login-phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="10-digit mobile number" pattern="[6-9][0-9]{9}" maxlength="10" aria-label="10-digit Indian mobile number" required>
+                  </div>
+                  <button class="button button--primary account-submit" id="send-login-code" type="submit">Continue with OTP <span aria-hidden="true">→</span></button>
+                </form>
+                <form id="login-otp-form" class="account-form" hidden>
+                  <p class="account-hint" id="login-otp-hint"></p>
+                  <label for="login-otp">Verification code</label>
+                  <input id="login-otp" name="otp" type="text" inputmode="numeric" autocomplete="one-time-code" placeholder="Enter 6-digit OTP" pattern="[0-9]{6}" maxlength="6" required>
+                  <button class="button button--primary account-submit" type="submit">Verify &amp; sign in <span aria-hidden="true">→</span></button>
+                  <div class="account-form__actions account-otp-actions">
+                    <span id="otp-resend-countdown" class="account-countdown" aria-live="polite"></span>
+                    <button class="account-text-button" id="resend-login-code" type="button" disabled>Resend OTP</button>
+                  </div>
+                  <button class="account-text-button account-edit-number" id="change-login-number" type="button">← Edit mobile number</button>
+                </form>
+                <div id="recaptcha-container"></div>
+                <p class="account-privacy">We’ll send a one-time code by SMS. Standard message rates may apply.</p>
+              </div>
+              <div class="account-login-panel" id="password-login-panel" role="tabpanel" aria-labelledby="password-tab" hidden>
+                <form id="email-login-form" class="account-form">
+                  <label for="password-login-email">Registered email</label>
+                  <input id="password-login-email" name="email" type="email" autocomplete="username" placeholder="you@example.com" required>
+                  <label for="password-login-password">Password</label>
+                  <div class="password-input">
+                    <input id="password-login-password" name="password" type="password" autocomplete="current-password" placeholder="Your password" required>
+                    <button class="password-toggle" type="button" data-password-toggle="password-login-password" aria-label="Show password" aria-pressed="false">
+                      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12s3.2-6 9.5-6 9.5 6 9.5 6-3.2 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.7"/></svg>
+                    </button>
+                  </div>
+                  <button class="button button--primary account-submit" type="submit">Sign in <span aria-hidden="true">→</span></button>
+                  <button class="account-text-button account-forgot-link" id="open-password-recovery" type="button">Forgot password?</button>
+                </form>
+                <p class="account-security-note">Password sign-in uses Supabase Email Authentication. Phone sign-in uses a separate one-time SMS code.</p>
+              </div>
+              <div class="account-login-footer">
+                <span>New to Inder?</span>
+                <button id="open-signup" type="button">Create an account</button>
+              </div>
+            </div>
+          </div>
+          <section class="account-flow" id="signup-flow" hidden>
+            <button class="account-back account-flow-back" type="button" data-return-login>← Back to sign in</button>
+            <div class="account-flow__heading"><p class="eyebrow">JOIN OUR NEIGHBORHOOD</p><h3>Create your account</h3><p>Verify your mobile number to get started.</p></div>
+            <form id="signup-form" class="account-form account-form--signup">
+              <label for="signup-name">Full name</label><input id="signup-name" name="name" type="text" autocomplete="name" maxlength="80" placeholder="Your name" required>
+              <label for="signup-phone">Mobile number <span class="account-inline-hint">Verified with OTP</span></label>
+              <div class="phone-input"><span class="phone-input__code" aria-label="India country code">🇮🇳 <b>+91</b></span><input id="signup-phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="10-digit mobile number" pattern="[6-9][0-9]{9}" maxlength="10" aria-label="10-digit Indian mobile number" required></div>
+              <label for="signup-email">Email <span class="account-inline-hint">Optional · required to enable password sign-in</span></label><input id="signup-email" name="email" type="email" autocomplete="email" placeholder="you@example.com">
+              <label for="signup-password">Create password <span class="account-inline-hint">Optional · use with your email</span></label>
+              <div class="password-input"><input id="signup-password" name="password" type="password" autocomplete="new-password" minlength="8" placeholder="At least 8 characters"><button class="password-toggle" type="button" data-password-toggle="signup-password" aria-label="Show password" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12s3.2-6 9.5-6 9.5 6 9.5 6-3.2 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.7"/></svg></button></div>
+              <label for="signup-confirm-password">Confirm password</label>
+              <div class="password-input"><input id="signup-confirm-password" name="confirmPassword" type="password" autocomplete="new-password" minlength="8" placeholder="Enter password again"><button class="password-toggle" type="button" data-password-toggle="signup-confirm-password" aria-label="Show password" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12s3.2-6 9.5-6 9.5 6 9.5 6-3.2 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.7"/></svg></button></div>
+              <p class="account-security-note account-security-note--wide">Passwords are handled by Supabase Authentication and are never saved in this website. Email/password accounts require a verified email; phone-only accounts sign in with OTP.</p>
+              <button class="button button--primary account-submit" id="send-signup-code" type="submit">Verify mobile &amp; create account <span aria-hidden="true">→</span></button>
+            </form>
+            <form id="signup-otp-form" class="account-form account-flow__otp" hidden>
+              <p class="account-hint" id="signup-otp-hint"></p>
+              <label for="signup-otp">Verification code</label><input id="signup-otp" type="text" inputmode="numeric" autocomplete="one-time-code" placeholder="Enter 6-digit OTP" pattern="[0-9]{6}" maxlength="6" required>
+              <button class="button button--primary account-submit" type="submit">Verify &amp; create account <span aria-hidden="true">→</span></button>
+              <div class="account-form__actions account-otp-actions"><span id="signup-resend-countdown" class="account-countdown" aria-live="polite"></span><button class="account-text-button" id="resend-signup-code" type="button" disabled>Resend OTP</button></div>
+              <button class="account-text-button account-edit-number" id="edit-signup-details" type="button">← Edit details</button>
+            </form>
+            <div id="signup-recaptcha-container"></div>
+          </section>
+          <section class="account-flow account-recovery" id="password-recovery" hidden>
+            <button class="account-back account-flow-back" type="button" data-return-login>← Back to sign in</button>
+            <div class="account-flow__heading"><span class="account-flow__icon" aria-hidden="true">↺</span><p class="eyebrow">ACCOUNT RECOVERY</p><h3>Reset your password</h3><p>We’ll email a secure reset link to the address registered with your account.</p></div>
+            <form id="password-recovery-form" class="account-form">
+              <label for="recovery-email">Registered email</label><input id="recovery-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+              <button class="button button--primary account-submit" type="submit">Send reset link <span aria-hidden="true">→</span></button>
+            </form>
+            <p class="account-security-note account-security-note--wide">Phone-only accounts use OTP to sign in and do not have a password to reset. SMS-based password recovery needs a trusted backend.</p>
+          </section>
+        </section>
+
+        <section class="account-home" id="account-home" hidden>
+          <div class="account-welcome">
+            <span class="account-avatar" aria-hidden="true">👋</span>
+            <div><p>Welcome back</p><strong id="account-customer-name"></strong><small id="account-customer-phone"></small></div>
+          </div>
+          <nav class="account-menu" aria-label="My account">
+            <button type="button" data-account-view="profile">Profile Details <span>›</span></button>
+            <button type="button" data-account-view="edit-profile">Edit Profile <span>›</span></button>
+            <button type="button" data-account-view="addresses">Saved Addresses <span>›</span></button>
+            <button type="button" data-account-view="orders">My Orders <span>›</span></button>
+            <button type="button" data-account-view="history">Order History <span>›</span></button>
+            <button type="button" data-account-view="wishlist">Wishlist <span>›</span></button>
+            <button type="button" data-account-view="settings">Account Settings <span>›</span></button>
+            <button type="button" data-account-view="change-mobile">Change Mobile Number <span>›</span></button>
+          </nav>
+          <button class="account-logout" id="account-logout" type="button">Log out</button>
+        </section>
+
+        <section class="account-subpage" id="account-subpage" hidden>
+          <button class="account-back" id="account-back" type="button">← My Account</button>
+          <div id="account-section-profile" data-account-section hidden>
+            <h3>Profile Details</h3>
+            <dl class="account-details"><div><dt>Name</dt><dd id="profile-name"></dd></div><div><dt>Verified mobile</dt><dd id="profile-phone"></dd></div><div><dt>Sign-in method</dt><dd>Phone number with OTP</dd></div></dl>
+            <button class="button button--primary" type="button" data-account-view="edit-profile">Edit Profile</button>
+          </div>
+          <div id="account-section-edit-profile" data-account-section hidden>
+            <h3>Edit Profile</h3>
+            <form class="account-form" id="edit-profile-form"><label>Full name<input id="edit-profile-name" name="name" type="text" autocomplete="name" maxlength="80" required></label><button class="button button--primary" type="submit">Save Profile</button></form>
+          </div>
+          <div id="account-section-addresses" data-account-section hidden>
+            <h3>Saved Addresses</h3>
+            <div id="saved-address-list" class="account-list"></div>
+            <h4 id="address-form-heading">Add an address</h4>
+            <form class="account-form" id="address-form">
+              <label>Address label<input name="label" type="text" placeholder="Home, Work..." maxlength="30" required></label>
+              <label>Recipient name<input name="recipientName" type="text" autocomplete="name" maxlength="80" required></label>
+              <label>Mobile number<input name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="16" required></label>
+              <label>Address<textarea name="address" autocomplete="street-address" rows="2" maxlength="300" required></textarea></label>
+              <label>City<input name="city" autocomplete="address-level2" maxlength="80" required></label>
+              <label>PIN code<input name="pincode" inputmode="numeric" autocomplete="postal-code" pattern="[0-9]{6}" maxlength="6" required></label>
+              <div class="account-form__actions"><button class="button button--primary" type="submit">Save Address</button><button class="account-secondary-button" id="cancel-address-edit" type="button" hidden>Cancel</button></div>
+            </form>
+          </div>
+          <div id="account-section-orders" data-account-section hidden><h3>My Orders</h3><div id="active-order-list" class="account-list"></div></div>
+          <div id="account-section-history" data-account-section hidden><h3>Order History</h3><div id="order-history-list" class="account-list"></div><p class="account-note">Orders are recorded here only when the store's order system confirms and saves them. WhatsApp order requests from this demo site are not confirmed orders.</p></div>
+          <div id="account-section-wishlist" data-account-section hidden><h3>Wishlist</h3><div id="account-wishlist-list" class="account-list"></div><button class="button button--primary" id="browse-wishlist" type="button">Browse wishlist products</button></div>
+          <div id="account-section-settings" data-account-section hidden>
+            <h3>Account Settings</h3>
+            <div class="account-setting"><div><strong>Product recommendations</strong><p>Save your preference for future store features.</p></div><label class="account-switch"><input id="recommendation-setting" type="checkbox"><span>On</span></label></div>
+            <button class="button button--primary" id="save-settings" type="button">Save Settings</button>
+            <p class="account-note">Your account is protected by Supabase phone authentication. Sign out on shared devices.</p>
+          </div>
+          <div id="account-section-change-mobile" data-account-section hidden>
+            <h3>Change Mobile Number</h3>
+            <p class="account-note">We’ll verify the new number with an SMS code before changing the number on your account.</p>
+            <form class="account-form" id="change-mobile-form"><label>New mobile number<input id="new-mobile-number" type="tel" inputmode="tel" autocomplete="tel" maxlength="16" required></label><button class="button button--primary" id="send-mobile-code" type="submit">Send verification code</button></form>
+            <form class="account-form" id="change-mobile-otp-form" hidden><label>6-digit verification code<input id="change-mobile-otp" type="text" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" maxlength="6" required></label><button class="button button--primary" type="submit">Verify new number</button></form>
+            <div id="mobile-recaptcha-container"></div>
+          </div>
+        </section>
+      </div>
+    </dialog>
+  </body>
+</html>

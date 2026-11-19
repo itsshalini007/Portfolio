@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#123b32">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Admin Dashboard | Inder General Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="admin.css">
+    <script src="products.js" defer></script>
+    <script type="module" src="admin.js"></script>
+  </head>
+  <body>
+    <main class="admin-login-screen" id="admin-login-screen">
+      <a class="admin-back-link" href="index.html">← Back to store</a>
+      <section class="admin-login-card">
+        <div class="admin-login-brand"><span class="admin-brand-mark">I</span><span><strong>Inder</strong><small>STORE ADMIN</small></span></div>
+        <p class="admin-eyebrow">SECURE ADMIN ACCESS</p>
+        <h1>Welcome back</h1>
+        <p class="admin-muted">Sign in with an authorized store administrator account.</p>
+        <div class="admin-alert" id="admin-login-alert" role="status" aria-live="polite" hidden></div>
+        <form id="admin-login-form" class="admin-form">
+          <label for="admin-email">Admin email</label>
+          <input id="admin-email" name="email" type="email" autocomplete="username" placeholder="admin@example.com" required>
+          <label for="admin-password">Password</label>
+          <input id="admin-password" name="password" type="password" autocomplete="current-password" placeholder="Your password" required>
+          <button class="admin-button admin-button--primary" id="admin-login-submit" type="submit">Sign in securely <span>→</span></button>
+        </form>
+        <p class="admin-login-footnote">Admin accounts are provisioned by the site owner. Public admin signup is disabled.</p>
+      </section>
+    </main>
+
+    <div class="admin-shell" id="admin-shell" hidden>
+      <aside class="admin-sidebar" id="admin-sidebar">
+        <a class="admin-sidebar-brand" href="admin.html"><span class="admin-brand-mark">I</span><span><strong>Inder</strong><small>STORE ADMIN</small></span></a>
+        <p class="admin-sidebar-label">WORKSPACE</p>
+        <nav class="admin-nav" aria-label="Admin dashboard">
+          <button class="admin-nav-item is-active" type="button" data-view="dashboard"><span>⌂</span>Dashboard</button>
+          <button class="admin-nav-item" type="button" data-view="products"><span>▤</span>Products</button>
+          <button class="admin-nav-item" type="button" data-view="add-product"><span>＋</span>Add New Product</button>
+          <button class="admin-nav-item" type="button" data-view="categories"><span>◫</span>Categories</button>
+          <button class="admin-nav-item" type="button" data-view="orders"><span>⇄</span>Orders</button>
+          <button class="admin-nav-item" type="button" data-view="inventory"><span>▦</span>Inventory</button>
+          <button class="admin-nav-item" type="button" data-view="customers"><span>♙</span>Customers</button>
+          <button class="admin-nav-item" type="button" data-view="settings"><span>⚙</span>Settings</button>
+        </nav>
+        <div class="admin-sidebar-bottom">
+          <div class="admin-user-chip"><span class="admin-user-avatar">A</span><span><strong id="admin-user-email">Administrator</strong><small>Authorized admin</small></span></div>
+          <button class="admin-logout" id="admin-logout" type="button"><span>↪</span>Log out</button>
+        </div>
+      </aside>
+
+      <div class="admin-main">
+        <header class="admin-topbar">
+          <button class="admin-menu-toggle" id="admin-menu-toggle" type="button" aria-label="Toggle admin menu" aria-expanded="false">☰</button>
+          <div><p class="admin-eyebrow">INDER GENERAL STORE</p><h1 id="admin-page-title">Dashboard</h1></div>
+          <div class="admin-topbar-right"><span class="admin-live-dot"></span><span>Secure workspace</span></div>
+        </header>
+        <div class="admin-notice" id="admin-notice" role="status" aria-live="polite" hidden></div>
+        <div class="admin-setup-banner" id="admin-setup-banner" hidden></div>
+
+        <section class="admin-view is-visible" data-view-panel="dashboard">
+          <div class="admin-welcome-row"><div><h2>Store overview</h2><p class="admin-muted">A clear view of your catalog and store activity.</p></div><button class="admin-button admin-button--soft" type="button" data-refresh>↻ Refresh data</button></div>
+          <div class="admin-stat-grid">
+            <article class="admin-stat-card"><span class="admin-stat-icon">▤</span><p>Total Products</p><strong id="stat-products">—</strong><small>Saved catalog items</small></article>
+            <article class="admin-stat-card"><span class="admin-stat-icon admin-stat-icon--orange">✓</span><p>Active Products</p><strong id="stat-active">—</strong><small>Available on the catalog</small></article>
+            <article class="admin-stat-card"><span class="admin-stat-icon admin-stat-icon--red">!</span><p>Out of Stock</p><strong id="stat-out-stock">—</strong><small>Stock quantity is zero</small></article>
+            <article class="admin-stat-card"><span class="admin-stat-icon">⇄</span><p>Total Orders</p><strong id="stat-orders">—</strong><small>Persisted store orders</small></article>
+            <article class="admin-stat-card"><span class="admin-stat-icon admin-stat-icon--orange">◷</span><p>Pending Orders</p><strong id="stat-pending">—</strong><small>Awaiting acceptance</small></article>
+            <article class="admin-stat-card"><span class="admin-stat-icon">♙</span><p>Total Customers</p><strong id="stat-customers">—</strong><small>Verified customer profiles</small></article>
+          </div>
+          <div class="admin-dashboard-grid">
+            <section class="admin-card">
+              <div class="admin-card-heading"><div><h3>Recent orders</h3><p>Latest orders recorded by the store</p></div><button class="admin-link-button" type="button" data-go="orders">View all →</button></div>
+              <div class="admin-table-wrap"><table><thead><tr><th>Order</th><th>Customer</th><th>Date</th><th>Status</th></tr></thead><tbody id="dashboard-recent-orders"></tbody></table></div>
+              <p class="admin-empty-note" id="dashboard-orders-empty" hidden>No confirmed orders are recorded. WhatsApp requests are not saved as orders.</p>
+            </section>
+            <section class="admin-card admin-shortcuts">
+              <div class="admin-card-heading"><div><h3>Quick actions</h3><p>Keep your catalog up to date</p></div></div>
+              <button type="button" data-go="add-product"><span>＋</span><strong>Add a product</strong><small>Create a catalog item</small><b>→</b></button>
+              <button type="button" data-go="categories"><span>◫</span><strong>Manage categories</strong><small>Organize your products</small><b>→</b></button>
+              <button type="button" data-go="inventory"><span>▦</span><strong>Review inventory</strong><small>Check low or empty stock</small><b>→</b></button>
+            </section>
+          </div>
+        </section>
+
+        <section class="admin-view" data-view-panel="products">
+          <div class="admin-welcome-row"><div><h2>Product catalog</h2><p class="admin-muted">Manage the products entered by your store.</p></div><button class="admin-button admin-button--primary" type="button" data-go="add-product">＋ Add product</button></div>
+          <div class="admin-card">
+            <div class="admin-toolbar"><label class="admin-search"><span>⌕</span><input id="product-search" type="search" placeholder="Search products or brands"></label><select id="product-category-filter" aria-label="Filter products by category"><option value="">All categories</option></select><select id="product-stock-filter" aria-label="Filter products by stock"><option value="">All stock</option><option value="in">In stock</option><option value="low">Low stock</option><option value="out">Out of stock</option></select></div>
+            <div class="admin-table-wrap"><table><thead><tr><th>Product</th><th>Category</th><th>Price</th><th>Stock</th><th>Status</th><th>Actions</th></tr></thead><tbody id="product-table-body"></tbody></table></div>
+            <p class="admin-empty-note" id="products-empty" hidden>No products match these filters.</p>
+          </div>
+        </section>
+
+        <section class="admin-view" data-view-panel="add-product">
+          <div class="admin-welcome-row"><div><h2 id="product-form-title">Add a new product</h2><p class="admin-muted">Only enter real product details and verified stock.</p></div></div>
+          <form id="product-form" class="admin-card admin-product-form">
+            <input id="product-id" type="hidden">
+            <div class="admin-form-grid">
+              <label class="admin-field admin-field--wide">Product name<input name="name" maxlength="120" required placeholder="e.g. Whole wheat atta"></label>
+              <label class="admin-field">Category<select name="categoryId" id="product-category" required><option value="">Choose category</option></select></label>
+              <label class="admin-field">Brand<input name="brand" maxlength="80" placeholder="Brand name"></label>
+              <label class="admin-field admin-field--wide">Product description<textarea name="description" rows="3" maxlength="1000" placeholder="Product details"></textarea></label>
+              <label class="admin-field">MRP (₹)<input id="product-mrp" name="mrp" type="number" min="0.01" step="0.01" required></label>
+              <label class="admin-field">Selling price (₹)<input id="product-price" name="price" type="number" min="0.01" step="0.01" required></label>
+              <label class="admin-field">Discount (%)<input name="discount" type="number" min="0" max="100" step="1" value="0" readonly><small class="admin-field-help">Calculated from MRP and selling price.</small></label>
+              <label class="admin-field">Weight / quantity<input name="weight" maxlength="40" required placeholder="e.g. 500g, 1L"></label>
+              <label class="admin-field">Stock quantity<input name="stockQuantity" type="number" min="0" max="1000000" step="1" required value="0"></label>
+              <label class="admin-field">Product status<select name="status"><option value="active">Active</option><option value="inactive">Inactive</option></select></label>
+              <div class="admin-field admin-field--wide">
+                <span class="admin-field-label">Product image</span>
+                <label class="admin-upload" for="product-image"><span class="admin-upload-icon">↑</span><span><strong>Choose an image</strong><small>JPEG, PNG or WebP · up to 5 MB</small></span><input id="product-image" type="file" accept="image/jpeg,image/png,image/webp"></label>
+                <img class="admin-image-preview" id="product-image-preview" alt="Product image preview" hidden>
+              </div>
+              <label class="admin-toggle-field"><input name="featured" type="checkbox"><span class="admin-toggle"></span><span><strong>Featured product</strong><small>Highlight this item in the store catalog</small></span></label>
+            </div>
+            <div class="admin-form-actions"><button class="admin-button admin-button--soft" id="product-form-reset" type="reset">Reset</button><button class="admin-button admin-button--primary" type="submit">Save product <span>→</span></button></div>
+          </form>
+        </section>
+
+        <section class="admin-view" data-view-panel="categories">
+          <div class="admin-welcome-row"><div><h2>Categories</h2><p class="admin-muted">Categories are stored separately and stay manageable without products.</p></div><button class="admin-button admin-button--soft" id="import-existing-categories" type="button">Import current category list</button></div>
+          <div class="admin-category-layout">
+            <form class="admin-card admin-category-form" id="category-form">
+              <input id="category-id" type="hidden">
+              <div class="admin-card-heading"><div><h3 id="category-form-title">Add category</h3><p>Choose a clear name and optional image.</p></div></div>
+              <label class="admin-field">Category name<input name="name" maxlength="60" required placeholder="Category name"></label>
+              <div class="admin-field"><span class="admin-field-label">Category image</span><label class="admin-upload" for="category-image"><span class="admin-upload-icon">↑</span><span><strong>Choose an image</strong><small>JPEG, PNG or WebP · up to 5 MB</small></span><input id="category-image" type="file" accept="image/jpeg,image/png,image/webp"></label><img class="admin-image-preview" id="category-image-preview" alt="Category image preview" hidden></div>
+              <div class="admin-form-actions"><button class="admin-button admin-button--soft" id="category-form-reset" type="reset">Reset</button><button class="admin-button admin-button--primary" type="submit">Save category</button></div>
+            </form>
+            <section class="admin-card"><div class="admin-card-heading"><div><h3>All categories</h3><p>Product counts update from the catalog.</p></div></div><div class="admin-category-list" id="category-list"></div><p class="admin-empty-note" id="categories-empty" hidden>No categories have been created.</p></section>
+          </div>
+        </section>
+
+        <section class="admin-view" data-view-panel="orders">
+          <div class="admin-welcome-row"><div><h2>Orders</h2><p class="admin-muted">Review persisted customer orders and update their status.</p></div><button class="admin-button admin-button--soft" type="button" data-refresh>↻ Refresh</button></div>
+          <div class="admin-callout">Only orders written by a trusted order-processing system appear here. The current storefront creates WhatsApp order requests, which are not confirmed or stored as orders.</div>
+          <div class="admin-toolbar"><label class="admin-search"><span>⌕</span><input id="order-search" type="search" placeholder="Search order, customer, mobile, address"></label><select id="order-status-filter" aria-label="Filter orders by status"><option value="">All statuses</option><option value="pending">Pending</option><option value="accepted">Accepted</option><option value="processing">Processing</option><option value="out for delivery">Out for Delivery</option><option value="delivered">Delivered</option><option value="cancelled">Cancelled</option></select></div>
+          <div class="admin-card"><div class="admin-table-wrap"><table><thead><tr><th>Order</th><th>Customer</th><th>Items</th><th>Address</th><th>Total</th><th>Date</th><th>Status</th></tr></thead><tbody id="orders-table-body"></tbody></table></div><p class="admin-empty-note" id="orders-empty" hidden>No persisted orders are available.</p></div>
+        </section>
+
+        <section class="admin-view" data-view-panel="inventory">
+          <div class="admin-welcome-row"><div><h2>Inventory</h2><p class="admin-muted">Stock quantities come only from saved product records.</p></div><label class="admin-threshold">Low-stock alert at <input id="low-stock-threshold" type="number" min="0" max="99999" value="5"> units</label></div>
+          <div class="admin-stat-grid admin-stat-grid--compact"><article class="admin-stat-card"><p>Tracked items</p><strong id="inventory-count">—</strong></article><article class="admin-stat-card"><p>Low stock</p><strong id="inventory-low">—</strong></article><article class="admin-stat-card"><p>Out of stock</p><strong id="inventory-out">—</strong></article></div>
+          <div class="admin-card"><div class="admin-table-wrap"><table><thead><tr><th>Product</th><th>Category</th><th>Stock status</th><th>Current stock</th><th>Update quantity</th></tr></thead><tbody id="inventory-table-body"></tbody></table></div><p class="admin-empty-note" id="inventory-empty" hidden>No product inventory has been recorded.</p></div>
+        </section>
+
+        <section class="admin-view" data-view-panel="customers">
+          <div class="admin-welcome-row"><div><h2>Customers</h2><p class="admin-muted">Verified account profiles recorded when customers sign in.</p></div><label class="admin-search"><span>⌕</span><input id="customer-search" type="search" placeholder="Search name or mobile"></label></div>
+          <div class="admin-callout">Customer records require Supabase Phone Authentication and the configured SMS provider. This view does not expose authentication credentials or support client-side account suspension.</div>
+          <div class="admin-card"><div class="admin-table-wrap"><table><thead><tr><th>Customer</th><th>Verified mobile</th><th>Profile last updated</th><th>Customer ID</th></tr></thead><tbody id="customers-table-body"></tbody></table></div><p class="admin-empty-note" id="customers-empty" hidden>No verified customer profiles are recorded yet.</p></div>
+        </section>
+
+        <section class="admin-view" data-view-panel="settings">
+          <div class="admin-welcome-row"><div><h2>Settings</h2><p class="admin-muted">Manage confirmed store details and delivery availability.</p></div></div>
+          <div class="admin-card admin-settings-card">
+            <span class="admin-stat-icon">⚙</span>
+            <h3>Delivery information</h3>
+            <p>These settings are stored in Supabase and shown on the customer Contact Us page. Leave the charge blank until the store owner confirms the amount.</p>
+            <form class="admin-delivery-settings" id="delivery-settings-form">
+              <div class="admin-form-grid">
+                <label class="admin-field">Store name<input id="store-name" maxlength="100" required></label>
+                <label class="admin-field admin-field--wide">Store address<input id="store-address" maxlength="300" required></label>
+                <label class="admin-field">Primary phone<input id="store-phone" type="tel" maxlength="20" required></label>
+                <label class="admin-field">Alternate phone<input id="store-alternate-phone" type="tel" maxlength="20" required></label>
+                <label class="admin-field">Store email<input id="store-email" type="email" maxlength="254" required></label>
+                <label class="admin-field">Opening days<input id="store-opening-days" maxlength="80" required></label>
+                <label class="admin-field">Opening time<input id="store-opening-time" maxlength="40" required></label>
+                <label class="admin-field">Closing time<input id="store-closing-time" maxlength="40" required></label>
+                <label class="admin-field">Delivery area<input id="store-delivery-area" maxlength="160" required></label>
+                <label class="admin-field">Delivery schedule<input id="store-delivery-schedule" maxlength="100" required></label>
+                <label class="admin-field">Minimum order (₹)<input id="store-minimum-order" type="number" min="0" step="0.01" placeholder="No minimum"></label>
+              </div>
+              <label class="admin-toggle-field">
+                <input id="delivery-available" type="checkbox" checked>
+                <span class="admin-toggle" aria-hidden="true"></span>
+                <span><strong>Home delivery available</strong><small>Show the current delivery availability to customers.</small></span>
+              </label>
+              <label class="admin-field" for="delivery-charge">Fixed delivery charge (₹)
+                <input id="delivery-charge" type="number" min="0" step="0.01" inputmode="decimal" placeholder="Not set">
+              </label>
+              <p class="admin-delivery-note" id="delivery-settings-note">Delivery settings have not been loaded yet.</p>
+              <button class="admin-button admin-button--primary" id="save-delivery-settings" type="submit">Save delivery settings</button>
+            </form>
+          </div>
+          <div class="admin-card admin-settings-card">
+            <span class="admin-stat-icon">✓</span><h3>Protected by Supabase</h3>
+            <p>Admin access is verified against the private <code>admin_users</code> table. Row Level Security policies independently enforce authorization for every protected read and write.</p>
+            <dl><div><dt>Signed in as</dt><dd id="settings-admin-email">—</dd></div><div><dt>Admin claim</dt><dd id="settings-admin-claim">—</dd></div><div><dt>Project</dt><dd id="settings-project-id">Not configured</dd></div></dl>
+            <a class="admin-button admin-button--soft" href="SUPABASE_SETUP.md">View Supabase setup guide</a>
+          </div>
+        </section>
+
+        <footer class="admin-footer">Inder General Store · Secure administration <a href="index.html">Return to customer store</a></footer>
+      </div>
+    </div>
+    <div class="admin-confirm-backdrop" id="admin-confirm-backdrop" hidden>
+      <section class="admin-confirm-dialog" role="alertdialog" aria-modal="true" aria-labelledby="confirm-title">
+        <span class="admin-confirm-icon">!</span><h2 id="confirm-title">Delete this item?</h2><p id="confirm-message">This action cannot be undone.</p>
+        <div><button class="admin-button admin-button--soft" id="confirm-cancel" type="button">Cancel</button><button class="admin-button admin-button--danger" id="confirm-delete" type="button">Delete</button></div>
+      </section>
+    </div>
+  </body>
+</html>
